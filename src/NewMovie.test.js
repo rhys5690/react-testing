@@ -5,11 +5,8 @@ import NewMovie from './NewMovie';
 afterEach(cleanup);
 
 test('<NewMovie />', () => {
-  const { debug } = render(<NewMovie />);
-  debug();
-});
-
-test('<NewMovieTwo />', () => {
-  const { debug } = render(<NewMovie />);
+  const { debug, getByTestId, queryByTestId } = render(<NewMovie />);
+  expect(getByTestId('page-title').textContent).toBe('New Movie');
+  expect(queryByTestId('movie-form')).toBeTruthy();
   debug();
 });
